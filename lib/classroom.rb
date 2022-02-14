@@ -27,4 +27,8 @@ class Classroom
     return @students.length > @capacity
   end
 
+  def kick_out
+    @students.delete_at(0)
+  end
+
 end

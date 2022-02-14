@@ -44,5 +44,71 @@ describe Classroom do
 
       expect(classroom.yell_at_students).to eq ['MIKE', 'MEGAN', 'BOB']
     end
+
+  # Iteration 3
+
+    it 'is over capacity or not' do
+      classroom = Classroom.new('History', 4)
+      classroom.add_student('Mike')
+      classroom.add_student('Megan')
+      classroom.add_student('Bob')
+
+      expect(classroom.over_capacity?).to eq FALSE
+    end
+
+    it 'is over capacity or not' do
+      classroom = Classroom.new('History', 4)
+      classroom.add_student('Mike')
+      classroom.add_student('Megan')
+      classroom.add_student('Bob')
+      classroom.add_student('Eve')
+      classroom.add_student('Alice')
+
+      expect(classroom.over_capacity?).to eq TRUE
+    end
+
+    # Iteration 4
+
+    it 'remove a student from classroom' do
+      classroom = Classroom.new('History', 4)
+      classroom.add_student('Mike')
+      classroom.add_student('Megan')
+      classroom.add_student('Bob')
+      classroom.add_student('James')
+      classroom.add_student('Cat')
+      classroom.add_student('Alice')
+      classroom.kick_out
+
+      expect(classroom.over_capacity?).to eq TRUE
+    end
+
+    it 'remove a student from classroom' do
+      classroom = Classroom.new('History', 4)
+      classroom.add_student('Mike')
+      classroom.add_student('Megan')
+      classroom.add_student('Bob')
+      classroom.add_student('James')
+      classroom.add_student('Cat')
+      classroom.add_student('Alice')
+      classroom.kick_out
+      classroom.kick_out
+
+      expect(classroom.over_capacity?).to eq FALSE
+    end
+
+    it 'remove a student from classroom' do
+      classroom = Classroom.new('History', 4)
+      classroom.add_student('Mike')
+      classroom.add_student('Megan')
+      classroom.add_student('Bob')
+      classroom.add_student('James')
+      classroom.add_student('Cat')
+      classroom.add_student('Alice')
+      classroom.kick_out
+      classroom.kick_out
+
+      expect(classroom.students).to eq ['Bob', 'James', 'Cat', 'Alice']
+  end
+
   end
 end

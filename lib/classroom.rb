@@ -23,4 +23,8 @@ class Classroom
     return new_arr
   end
 
+  def over_capacity?
+    return @students.length > @capacity
+  end
+
 end
